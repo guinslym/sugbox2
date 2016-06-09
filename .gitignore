@@ -26,3 +26,5 @@ cache/
 secret_key.txt
 #settings/production.py
 staticfiles_dev/
+htmlcov/
+applications/*/tests/

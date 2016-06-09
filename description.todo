@@ -1,10 +1,7 @@
-description:
- ☐ An app so that user can create a Suggestion Box and then they let users add Suggies to it. In extension this app will permit to create surveys
- ☐ Jessica create a Sugbox about 'how do users find the design of the local libraries'
- ☐ Users can post content about that
+description of the project:
 
 
+Models:
 
-Model-MVC:
- ☐ Box (Sugbox)
-   ☐ **Suggies (Suggestion | Comment)
+
+todo:
