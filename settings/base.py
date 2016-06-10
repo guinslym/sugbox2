@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
-WSGI_APPLICATION = 'wadiyabi.wsgi.application'
-ROOT_URLCONF = 'wadiyabi.urls'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import logging

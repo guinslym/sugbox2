@@ -14,7 +14,7 @@ INSTALLED_APPS = BASE_APPS + (
     'MySQLdb',
     'bootstrap_pagination',
     #applications
-    'applications.delivrem',
+    'applications.cumberland',
 )
 
 
