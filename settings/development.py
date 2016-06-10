@@ -8,14 +8,10 @@ SECRET_KEY = 'p-h93iwrvc0+3e%m9)8(b(ml1clqwih^u=7p%p+o$ln$^458kn'
 DEBUG=True
 TEMPLATE_DEBUG_MODE = True
 
-INSTALLED_APPS = BASE_APPS + (
+DEV_APPS = (
     'debug_toolbar',
-    'rest_framework',
-    'MySQLdb',
-    'bootstrap_pagination',
-    #applications
-    'applications.cumberland',
 )
+INSTALLED_APPS = BASE_APPS + DEV_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 
 MIDDLEWARE_CLASSES = (

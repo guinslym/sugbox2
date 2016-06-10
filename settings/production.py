@@ -8,13 +8,7 @@ DEBUG = False
 TEMPLATE_DEBUG_MODE = False
 
 
-INSTALLED_APPS = BASE_APPS + (
-    'rest_framework',
-    'MySQLdb',
-    'bootstrap_pagination',
-    #applications
-    'applications.cumberland',
-)
+INSTALLED_APPS = BASE_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

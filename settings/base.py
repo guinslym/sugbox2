@@ -47,6 +47,14 @@ BASE_APPS =  (
     'django.contrib.humanize',
     'django_extensions',
 )
+THIRD_PARTY_APPS =  (
+    'rest_framework',
+    'MySQLdb',
+    'bootstrap_pagination',
+)
+LOCAL_APPS = (
+    'applications.cumberland',
+)
 
 CACHES = {
     'default': {
