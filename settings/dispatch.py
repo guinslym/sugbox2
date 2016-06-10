@@ -1,7 +1,5 @@
 import socket
 
-ROOT_URLCONF = 'sugbox.urls'
-WSGI_APPLICATION = 'sugbox.wsgi.application'
 #My laptop is name 'Guinsly-thinkpad-lenovo'
 if 'guinsly' in socket.gethostname():
     from .development import *

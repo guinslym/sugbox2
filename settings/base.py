@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+WSGI_APPLICATION = 'sugbox.wsgi.application'
+ROOT_URLCONF = 'sugbox.urls'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import logging
