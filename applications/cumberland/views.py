@@ -9,7 +9,7 @@ from django.views import generic
 
 
 from .models import Box, Suggestion
-# from .forms import PostForm
+from .forms import BoxForm
 # Create your views here.
 
 
@@ -19,8 +19,8 @@ class HomePageView(TemplateView):
 class BoxCreateView(CreateView):
     """
     """
-    model = Post
-    form_class = PostForm
+    model = Box
+    form_class = BoxForm
     template_name = 'cumberland/creeate.html'
     success_url = '/'
 

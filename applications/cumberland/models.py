@@ -74,10 +74,10 @@ class Recipient(TimeStampModel):
     For adding comments (or suggestions)
     """
     def __str__(self):
-        return self.comment[0:10]
+        return self.receiver
 
     box = models.ForeignKey(Box, on_delete=models.CASCADE, related_name='recipients')
-    receivers = models.EmailField(blank=True, null=True)
+    receiver = models.EmailField(blank=True, null=True)
     #participant = participan_id
 
     '''
