@@ -40,8 +40,8 @@ class Suggestion(TimeStampModel):
     def __str__(self):
         return self.comment[0:10]
 
-    comment = models.CharField("",max_length=250, blank=True, null=True)
     box = models.ForeignKey(Box, on_delete=models.CASCADE, related_name='suggies')
+    comment = models.CharField("",max_length=250, blank=True, null=True)
     slug = models.UUIDField(default=uuid.uuid4, editable=False)
     #participant = participan_id
 
