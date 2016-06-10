@@ -13,7 +13,7 @@ class Box(TimeStampModel):
     def __str__(self):
         return self.title
 
-    title = models.CharField(max_length=60, blank=True, null=True)
+    title = models.CharField(max_length=60, blank=False, null=False)
     description = models.CharField(max_length=250, blank=True, null=True)
     identify = models.BooleanField(default=False)
     activate = models.BooleanField(default=False)
