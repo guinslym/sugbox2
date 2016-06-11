@@ -6,7 +6,8 @@ from django.utils.decorators import method_decorator
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.views import generic
-
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 from .models import Box, Suggestion
 from .forms import BoxForm
@@ -24,17 +25,26 @@ class BoxCreateView(CreateView):
     template_name = 'cumberland/creeate.html'
     success_url = '/'
 
-    def post(self, request, *args, **kwargs):
-        if getattr(request.user, 'first_name', None) == 'Martin':
-            raise Http404()
-        return super(PostUpdateView, self).post(request, *args, **kwargs)
-
 class AboutUsTemplateView(TemplateView):
     template_name = 'cumberland/about_us.html'
 
 class HowToTemplateView(TemplateView):
     template_name = 'cumberland/howto.html'
 
+import uuid
+def activate_box(request, activate_box_key):
+    #import pdb; pdb.set_trace()
+    activate_box_key = uuid.UUID(activate_box_key)
+    box = get_object_or_404(Box, activation_key=activate_box_key)
+    if not box.activate :
+        box.activate = True
+        box.save()
+        messages.add_message(request, messages.INFO, 'Box is activated.')
+        return render(request,
+            'cumberland/box_activated.html',{'box':box}
+             )
+    else:
+        return render(request, 'cumberland/already_box_activated.html', {'box':box, 'message':'Your box is already activate'})
 
 '''
 def bookmarks_list(request):
