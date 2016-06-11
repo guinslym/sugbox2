@@ -28,6 +28,14 @@ class BoxCreateView(CreateView):
         if getattr(request.user, 'first_name', None) == 'Martin':
             raise Http404()
         return super(PostUpdateView, self).post(request, *args, **kwargs)
+
+class AboutUsTemplateView(TemplateView):
+    template_name = 'cumberland/about_us.html'
+
+class HowToTemplateView(TemplateView):
+    template_name = 'cumberland/howto.html'
+
+
 '''
 def bookmarks_list(request):
     bookmarks = None
