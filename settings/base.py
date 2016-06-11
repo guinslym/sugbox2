@@ -123,3 +123,39 @@ STATIC_ROOT = os.path.join('staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# ckeditor settings
+CKEDITOR_UPLOAD_PATH = 'ckeditor_uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_JQUERY_URL = \
+    '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [{
+            'name': 'basic',
+            'items': ['Bold', 'Italic', 'Underline', 'RemoveFormat', '-',
+                      'PasteText', 'Undo', 'Redo', 'Format', 'Source', ],
+        }],
+    },
+}
+
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
+)

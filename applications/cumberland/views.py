@@ -28,3 +28,21 @@ class BoxCreateView(CreateView):
         if getattr(request.user, 'first_name', None) == 'Martin':
             raise Http404()
         return super(PostUpdateView, self).post(request, *args, **kwargs)
+'''
+def bookmarks_list(request):
+    bookmarks = None
+    user = request.user
+    if user.is_authenticated():
+        bookmarks = Bookmark.objects.filter(user=user)
+    return render(request, 'index.html', {'bookmarks': bookmarks})
+
+
+def add_bookmark(request):
+    user = request.user
+    form = AddBookmarkForm(request.POST or None)
+    if form.is_valid():
+        bookmark = form.save(commit=False)
+        bookmark.user = user
+        bookmark.save()
+        return redirect('bookmarks_list')
+'''

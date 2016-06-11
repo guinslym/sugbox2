@@ -2,10 +2,12 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django_extensions.db.models import  TimeStampedModel
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 from basis.models import TimeStampModel
 import datetime
 from django.utils import timezone
 import uuid
+import arrow
 
 @python_2_unicode_compatible
 class Box(TimeStampModel):
@@ -15,7 +17,7 @@ class Box(TimeStampModel):
     def __str__(self):
         return self.title
 
-    title = models.CharField(max_length=60,
+    title = models.CharField(max_length=60, verbose_name=_('Title'),
                             blank=False, null=False,
                             help_text="Add a title on you Suggestion " \
                             "Box i.e: How did you find my presentation")
@@ -42,6 +44,10 @@ class Box(TimeStampModel):
                        args=[str(self.slug)]
                 )
     '''
+    @property
+    def time_ago(self):
+        time_ago = arrow.get(self.created)
+        return time_ago.humanize(locale='pt')
 
     class Meta:
         ordering = ['-id']
