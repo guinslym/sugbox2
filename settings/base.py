@@ -51,8 +51,10 @@ THIRD_PARTY_APPS =  (
     'rest_framework',
     'MySQLdb',
     'bootstrap_pagination',
+    'social.apps.django_app.default',
 )
 LOCAL_APPS = (
+    'applications.account',
     'applications.cumberland',
 )
 
@@ -157,5 +159,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django.contrib.auth.backends.RemoteUserBackend',
+    'applications.account.authentication.EmailAuthBackend',
 )
+
+from django.core.urlresolvers import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
