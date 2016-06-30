@@ -22,7 +22,7 @@ class BoxCreateView(CreateView):
     """
     model = Box
     form_class = BoxForm
-    template_name = 'cumberland/creeate.html'
+    template_name = 'cumberland/create.html'
     success_url = '/'
 
 class AboutUsTemplateView(TemplateView):
