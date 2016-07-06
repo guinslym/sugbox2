@@ -45,22 +45,3 @@ def activate_box(request, activate_box_key):
              )
     else:
         return render(request, 'cumberland/already_box_activated.html', {'box':box, 'message':'Your box is already activate'})
-
-'''
-def bookmarks_list(request):
-    bookmarks = None
-    user = request.user
-    if user.is_authenticated():
-        bookmarks = Bookmark.objects.filter(user=user)
-    return render(request, 'index.html', {'bookmarks': bookmarks})
-
-
-def add_bookmark(request):
-    user = request.user
-    form = AddBookmarkForm(request.POST or None)
-    if form.is_valid():
-        bookmark = form.save(commit=False)
-        bookmark.user = user
-        bookmark.save()
-        return redirect('bookmarks_list')
-'''
