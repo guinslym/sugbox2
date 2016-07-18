@@ -26,11 +26,15 @@ class BoxFormCrispyForm(forms.ModelForm):
             return data
             '''
     expiring_date = forms.DateField(
-        widget=forms.TextInput(
-            attrs={'type': 'date'}
+        widget=forms.DateInput(
+            attrs={"class":"datepicker",
+                    'type': 'date',
+                    'placeholder':"07/17/2016",
+                    "cols":3,}
         ),
         required=False,
     )
+
     def __init__(self, *args, **kwargs):
         super(BoxFormCrispyForm,self).__init__(*args, **kwargs)
 
@@ -41,16 +45,16 @@ class BoxFormCrispyForm(forms.ModelForm):
         self.helper.label_class = 'col-sm-3'
         self.helper.field_class = 'col-sm-4'
         self.fields["title"].required = True
-        self.date = forms.DateField(
-        widget=DateTimePicker(options={"format": "YYYY-MM-DD",
-                                       "pickTime": False}))
+        self.fields['description'].widget = forms.Textarea(
+                                            attrs={'rows': '8'})
+
         self.helper.layout = layout.Layout(
             layout.Fieldset(
                 _("Create a Suggestion Box"),
                 Field("title", css_class="input-block-level"),
                 Field('expiring_date'),
                 Field("email", css_class="input-block-level"),
-                Field("description", css_class="input-block-level", rows="3"),
+                Field("description", css_class="input-block-level"),
                 ),
                 FormActions(
                     layout.Submit("submit", _("Save")),
