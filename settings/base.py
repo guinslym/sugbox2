@@ -46,6 +46,7 @@ BASE_APPS =  (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_extensions',
+    'crispy_forms',
 )
 THIRD_PARTY_APPS =  (
     'rest_framework',
@@ -57,6 +58,19 @@ LOCAL_APPS = (
     'applications.account',
     'applications.cumberland',
 )
+CRISPY_TEMPLATE_PACK = "bootstrap3"
+NOCAPTCHA = True
+RECAPTCHA_PUBLIC_KEY = '6LcVu9ESAAAAANVWwbM5-PLuLES94GQ2bIYmSNTG'
+RECAPTCHA_PRIVATE_KEY = '6LcVu9ESAAAAAGxz7aEIACWRa3CVnXN3mFd-cajP'
+LIST_OF_EMAIL_RECIPIENTS = 'jhlkjh@gmail.com'
+
+ADMINS = [('Guinsly', 'sdfasdfs@gmail.com')]
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+#EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
 
 CACHES = {
     'default': {
