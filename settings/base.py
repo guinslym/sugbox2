@@ -48,6 +48,7 @@ BASE_APPS =  (
     'django_extensions',
     'crispy_forms',
     'bootstrap3_datetime',
+    'django_comments',
 )
 THIRD_PARTY_APPS =  (
     'rest_framework',

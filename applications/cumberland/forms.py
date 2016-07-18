@@ -105,3 +105,32 @@ class SuggiesFormCrispyForm(forms.ModelForm):
                     layout.Button('cancel', 'Cancel', onclick="window.location.href='/';")
                 )
         )
+
+
+from django_comments.forms import CommentForm
+
+class BoxCommentForm(CommentForm):
+    class Meta:
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        """Setup the form to work with crispy_forms."""
+        super(BoxCommentForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+
+        # For some reason the form_id is not working. Leaving it as a reminder
+        # to fix it at some point
+        self.helper.form_id = 'comment-form'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Post Comment',
+                'comment',
+                'content_type',
+                'object_pk',
+                'timestamp',
+                'security_hash',
+            ),
+            FormActions(
+                Button('post', 'Post'),
+            )
+            )

@@ -14,3 +14,13 @@ Model-MVC:
   ☐ Expires in 1 hour ... 2 hours 1 day...
   ☐ Now how to add Comments/Suggestion to a Box?
   ☐ Pause think about the comments...
+  ☐ Being able to update create delete
+
+
+Helper :
+  ☐ https://github.com/2adicted/Archilizer/blob/fe58991aeac923d2ee8a017320afb861d2d9c3ae/blog/views.py
+  ☐ https://django-contrib-comments.readthedocs.io/en/latest/quickstart.html
+  ☐ https://github.com/joshsamara/game-website/blob/1d9edd1959a7d401a76ced29ffbc430017d3dd8b/game_comments/views.py
+  ☐ https://github.com/joshsamara/game-website/blob/1d9edd1959a7d401a76ced29ffbc430017d3dd8b/game_comments/forms.py
+  ☐ https://github.com/mtCarto/Oh-Deer/blob/4a31f03b9645b15fd061b9291644f20f64873f83/deermap/forms/forms.py
+  ☐ 
