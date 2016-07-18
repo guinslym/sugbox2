@@ -61,3 +61,47 @@ class BoxFormCrispyForm(forms.ModelForm):
                     layout.Button('cancel', 'Cancel', onclick="window.location.href='/';")
                 )
         )
+######################################################
+######################################################
+######################################################
+######################################################
+######################################################
+######################################################
+######################################################
+
+class SuggiesFormCrispyForm(forms.ModelForm):
+    class Meta:
+        model = Suggestion
+        fields = ('comment',)
+
+    '''
+    def clean_comment(self):
+        data = self.cleaned_data.get('body')
+        if len(data) <= 5:
+            raise forms.ValidationError('The Suggies is too short')
+            return data
+    '''
+
+    def __init__(self, *args, **kwargs):
+        super(SuggiesFormCrispyForm,self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper(self)
+        self.helper.form_action = ""
+        self.helper.form_method = "POST"
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-sm-3'
+        self.helper.field_class = 'col-sm-4'
+        self.fields["comment"].required = True
+        self.fields['comment'].widget = forms.Textarea(
+                                            attrs={'rows': '3', 'cols':'4'})
+
+        self.helper.layout = layout.Layout(
+            layout.Fieldset(
+                _("Add a Suggies"),
+                Field("comment", css_class="input-block-level"),
+                ),
+                FormActions(
+                    layout.Submit("submit", _("Add suggies")),
+                    layout.Button('cancel', 'Cancel', onclick="window.location.href='/';")
+                )
+        )

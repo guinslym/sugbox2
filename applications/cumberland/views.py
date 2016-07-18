@@ -10,12 +10,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from .models import Box, Suggestion
-from .forms import BoxFormCrispyForm
+from .forms import (
+        BoxFormCrispyForm,
+        SuggiesFormCrispyForm
+        )
 # Create your views here.
 
-
-class HomePageView(TemplateView):
-    template_name = 'cumberland/home.html'
 
 class BoxCreateView(CreateView):
     """
@@ -25,14 +25,34 @@ class BoxCreateView(CreateView):
     template_name = '_create.html'
     success_url = '/'
 
+class SuggiesCreateView(CreateView):
+    """
+    """
+    model = Suggestion
+    form_class = SuggiesFormCrispyForm
+    template_name = '_create_suggies.html'
+    success_url = '/'
+
+
+
+
+
+
+
+
+
+
+class HomePageView(TemplateView):
+    template_name = 'cumberland/home.html'
+
 class AboutUsTemplateView(TemplateView):
     template_name = 'cumberland/about_us.html'
 
 class HowToTemplateView(TemplateView):
     template_name = 'cumberland/howto.html'
 
-import uuid
 def activate_box(request, activate_box_key):
+    import uuid
     #import pdb; pdb.set_trace()
     activate_box_key = uuid.UUID(activate_box_key)
     box = get_object_or_404(Box, activation_key=activate_box_key)
