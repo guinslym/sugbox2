@@ -47,6 +47,7 @@ BASE_APPS =  (
     'django.contrib.humanize',
     'django_extensions',
     'crispy_forms',
+    'bootstrap3_datetime',
 )
 THIRD_PARTY_APPS =  (
     'rest_framework',

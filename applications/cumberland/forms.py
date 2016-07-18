@@ -8,6 +8,8 @@ from crispy_forms.layout import Layout, ButtonHolder, Submit
 from crispy_forms import layout
 from crispy_forms import layout, bootstrap
 from crispy_forms.bootstrap import Field, FormActions
+from bootstrap3_datetime.widgets import DateTimePicker
+from django.forms.extras.widgets import SelectDateWidget
 
 #from captcha.fields import ReCaptchaField
 
@@ -23,6 +25,12 @@ class BoxFormCrispyForm(forms.ModelForm):
             raise forms.ValidationError('Message in the body is too short')
             return data
             '''
+    expiring_date = forms.DateField(
+        widget=forms.TextInput(
+            attrs={'type': 'date'}
+        ),
+        required=False,
+    )
     def __init__(self, *args, **kwargs):
         super(BoxFormCrispyForm,self).__init__(*args, **kwargs)
 
@@ -32,16 +40,20 @@ class BoxFormCrispyForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-sm-3'
         self.helper.field_class = 'col-sm-4'
-
+        self.fields["title"].required = True
+        self.date = forms.DateField(
+        widget=DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False}))
         self.helper.layout = layout.Layout(
             layout.Fieldset(
                 _("Create a Suggestion Box"),
                 Field("title", css_class="input-block-level"),
+                Field('expiring_date'),
                 Field("email", css_class="input-block-level"),
                 Field("description", css_class="input-block-level", rows="3"),
                 ),
                 FormActions(
-                    Submit("submit", _("Save")),
-                    Button('cancel', 'Cancel', onclick="window.location.href='/';")
+                    layout.Submit("submit", _("Save")),
+                    layout.Button('cancel', 'Cancel', onclick="window.location.href='/';")
                 )
         )
