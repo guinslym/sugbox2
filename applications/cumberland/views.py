@@ -10,7 +10,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from .models import Box, Suggestion
-from .forms import BoxForm
+from .forms import BoxFormCrispyForm
 # Create your views here.
 
 
@@ -21,7 +21,7 @@ class BoxCreateView(CreateView):
     """
     """
     model = Box
-    form_class = BoxForm
+    form_class = BoxFormCrispyForm
     template_name = 'cumberland/create.html'
     success_url = '/'
 

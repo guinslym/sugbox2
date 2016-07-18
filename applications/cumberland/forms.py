@@ -11,24 +11,18 @@ from crispy_forms.bootstrap import Field, FormActions
 
 #from captcha.fields import ReCaptchaField
 
-class BoxForm(forms.ModelForm):
-    class Meta:
-        model = Box
-        fields = ('title','description', 'email', 'expiring_date', )
-    '''
-    def clean_body(self):
-        data = self.cleaned_data.get('body')
-        if len(data) <= 5:
-            raise forms.ValidationError('Message in the body is too short')
-        return data
-    '''
-
-
 class BoxFormCrispyForm(forms.ModelForm):
     class Meta:
         model = Box
         fields = ('title','description', 'email', 'expiring_date', )
 
+    '''
+    def clean_body(self):
+        data = self.cleaned_data.get('body')
+        if len(data) <= 5:
+            raise forms.ValidationError('Message in the body is too short')
+            return data
+            '''
     def __init__(self, *args, **kwargs):
         super(BoxFormCrispyForm,self).__init__(*args, **kwargs)
 
